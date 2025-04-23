@@ -1,43 +1,23 @@
+import java.util.HashMap;
+
+
 public class Address {
-    public class Area {
-        private String name;
-        Area(String name) {
-            this.name=name;
-        }
-    }
-    public class Street  {
-        private String name;
-        Street(String name) {
-            this.name=name;
-        }
+private String address;
 
-    }
-    public class House {
-        private String name;
-        private int[] pose;
-        House(String name) {
-            this.name=name;
-        }
-    }
-    private Area area;
-    private Street street;
-    private House house;
+public String getAddress() {
+    return address;
+}
 
-    
-    Address (String s) {
-        String [] addr = s.split(",");
-        this.area=new Area(addr[0]);
-        this.street=new Street(addr[1]);
-        this.house=new House(addr[2]);
-    }
-    public Area getArea() {
-        return area;
-    }
-    public Street getStreet() {
-        return street;
-    }
-
-    public House getHouse() {
-        return house;
-    }
+public void setAddress(String address) {
+    this.address = address;
+}
+   private double x,y;
+   Address(String address, double x, double y) {
+      this.address = address;
+      this.x = x;
+      this.y = y;
+   }
+   public double findDistance(Address other) {
+      return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
+   }
 }
