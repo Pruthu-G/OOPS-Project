@@ -1,0 +1,151 @@
+// User.java - Abstract base class for all user types
+public abstract class User {
+    protected String userId;
+    protected String name;
+    protected String email;
+    protected String phone;
+    protected String address;
+    
+    // Constructor overloading (Requirement II)
+    public User(String userId, String name) {
+        this.userId = userId;
+        this.name = name;
+    }
+    
+    public User(String userId, String name, String email, String phone) {
+        this(userId, name);
+        this.email = email;
+        this.phone = phone;
+    }
+    
+    // Abstract method
+    public abstract void displayProfile();
+    
+    // Getters and setters
+    public String getUserId() { return userId; }
+    public String getName() { return name; }
+    // ... other getters and setters
+}
+
+// Customer.java - Concrete class extending User
+public class Customer extends User {
+    private List<Order> orderHistory;
+    private List<Address> savedAddresses;
+    private PaymentMethod[] paymentMethods;
+    private LoyaltyProgram loyaltyProgram;
+    
+    public Customer(String userId, String name) {
+        super(userId, name);
+        this.orderHistory = new ArrayList<>();
+    }
+    
+    public Customer(String userId, String name, String email, String phone) {
+        super(userId, name, email, phone);
+        this.orderHistory = new ArrayList<>();
+    }
+    
+    @Override
+    public void displayProfile() {
+        System.out.println("Customer Profile:");
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+        System.out.println("Phone: " + phone);
+    }
+    
+    // Method overloading (Requirement I)
+    public void addPaymentMethod(PaymentMethod method) {
+        // Add single payment method
+    }
+    
+    public void addPaymentMethod(PaymentMethod... methods) { // Varargs (Requirement III)
+        // Add multiple payment methods
+    }
+    
+    public void placeOrder(Order order) {
+        // Place order logic
+    }
+    
+    public void trackOrder(String orderId) {
+        // Track order logic
+    }
+    
+    // Nested class for loyalty program (Requirement IV)
+    public class LoyaltyProgram {
+        private int points;
+        private String tier;
+        
+        public void addPoints(int earnedPoints) {
+            points += earnedPoints;
+            updateTier();
+        }
+        
+        private void updateTier() {
+            if(points > 1000) tier = "Gold";
+            else if(points > 500) tier = "Silver";
+            else tier = "Bronze";
+        }
+        
+        public int redeemPoints(int pointsToRedeem) {
+            if(pointsToRedeem <= points) {
+                points -= pointsToRedeem;
+                return pointsToRedeem;
+            }
+            return 0;
+        }
+    }
+}
+
+// RestaurantStaff.java - Another user type
+public class RestaurantStaff extends User {
+    private String restaurantId;
+    private String role;
+    
+    public RestaurantStaff(String userId, String name, String restaurantId) {
+        super(userId, name);
+        this.restaurantId = restaurantId;
+    }
+    
+    @Override
+    public void displayProfile() {
+        System.out.println("Restaurant Staff Profile:");
+        System.out.println("Name: " + name);
+        System.out.println("Role: " + role);
+    }
+    
+    public void updateMenu(Menu menu) {
+        // Update menu logic
+    }
+    
+    public void updateOrderStatus(String orderId, OrderStatus status) {
+        // Update order status logic
+    }
+}
+
+// DeliveryPerson.java - Another user type
+public class DeliveryPerson extends User {
+    private String vehicleNumber;
+    private boolean available;
+    private List<Order> currentDeliveries;
+    
+    public DeliveryPerson(String userId, String name, String vehicleNumber) {
+        super(userId, name);
+        this.vehicleNumber = vehicleNumber;
+        this.available = true;
+        this.currentDeliveries = new ArrayList<>();
+    }
+    
+    @Override
+    public void displayProfile() {
+        System.out.println("Delivery Person Profile:");
+        System.out.println("Name: " + name);
+        System.out.println("Vehicle: " + vehicleNumber);
+    }
+    
+    public void updateLocation(Location location) {
+        // Update current location
+    }
+    
+    public void markDeliveryComplete(String orderId) {
+        // Mark delivery as complete
+    }
+}
