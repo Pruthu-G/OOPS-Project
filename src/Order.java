@@ -1,22 +1,24 @@
 import java.util.List;
 
 public class Order {
+    enum OrderStatus {
+        IN_PROCESS,IN_KITCHEN,OUT_FOR_DELIVERY,DELIVERED
+    }
    private Customer customer;
    private  DeliveryPartner deliveryGuy;
     private List<Menu.Item> items;
     private Restaurant restaurant;
     private int bill;
-    private String orderStatus;
+    private OrderStatus orderStatus;
 
-
-   public Order(List<Menu.Item> item, Restaurant restaurant,Customer customer,String orderStatus){
+   public Order(List<Menu.Item> item, Restaurant restaurant,Customer customer,OrderStatus orderStatus){
          this.customer=customer;
          this.items=item;
          this.customer=customer;
          this.orderStatus=orderStatus;
          
     }
-    public void updateOrderStatus(String status){
+    public void updateOrderStatus(OrderStatus status){
         this.orderStatus=status;
     }
 
