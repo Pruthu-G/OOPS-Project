@@ -59,7 +59,14 @@ public class Restaurant extends User implements UserInterface {
    public static void main(String[] args) throws UserException {
         // Example usage of the Restaurant class
         Address address = new Address("123 Main St", 70.0, 40.0);
-        Menu menu = new Menu(Arrays.asList((new Menu()).new Item(0, null, null, 0, false)), new String[]{"Italian", "Chinese"});
+        String[] cuisine = {"Italian", "Chinese", "Indian"};
+        Menu menu = new Menu(cuisine);
+        Menu.Item item1 = menu.new Item(12.99, "Pasta", "Italian", 4.5, true);
+        Menu.Item item2 = menu.new Item(8.99, "Fried Rice", "Chinese", 4.0, true);
+        Menu.Item item3 = menu.new Item(10.99, "Curry", "Indian", 4.8, true);
+        menu.addItem(item1);
+        menu.addItem(item2);
+        menu.addItem(item3);
         Restaurant restaurant = new Restaurant(1, "Restaurant Name", "mail@mail.com", address, "password123", menu);
         while (true) {
             try {

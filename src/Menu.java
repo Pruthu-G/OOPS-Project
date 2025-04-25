@@ -1,6 +1,7 @@
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
 public class Menu {
     //an item should be encapsulated by the menu as it is uniquie to a restaurant and it's menu 
     //implements nested classes ,wrapper classes ,toStirig method
@@ -24,11 +25,11 @@ public class Menu {
     }
     public List<Item> items;
     public String[] cuisine;
-    Menu(){}
-    public Menu(List<Item> items,String[] cuisine) 
+   
+    public Menu(String[] cuisine) 
     {
         this.cuisine=cuisine;
-        this.items=items;
+        this.items=new ArrayList<>();
     }
     public void addItem(Item item){
         this.items.add(item);
