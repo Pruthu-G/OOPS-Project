@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Order {
    private Customer customer;
-   private  DeliveryGuy deliveryGuy;
+   private  DeliveryPartner deliveryGuy;
     private List<Menu.Item> items;
     private Restaurant restaurant;
     private int bill;
@@ -20,7 +20,7 @@ public class Order {
         this.orderStatus=status;
     }
 
-    void assignDeliveryGuy(DeliveryGuy deliveryguy){
+    void assignDeliveryGuy(DeliveryPartner deliveryguy){
         this.deliveryGuy=deliveryguy;
     }
 
