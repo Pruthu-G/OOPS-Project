@@ -28,7 +28,7 @@ public class Order {
         double s=0;
         for(Menu.Item i: this.items)
         {
-            s+=i.price;
+            s+=i.getPrice();
         }
         return s;
     }
