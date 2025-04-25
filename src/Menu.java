@@ -24,7 +24,7 @@ public class Menu {
     }
     public List<Item> items;
     public String[] cuisine;
-
+    Menu(){}
     public Menu(List<Item> items,String[] cuisine) 
     {
         this.cuisine=cuisine;

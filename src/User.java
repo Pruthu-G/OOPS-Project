@@ -2,7 +2,7 @@ public class User{
     private String name;
     private String email;
     private Address address;
-    private String password;
+    protected String password;
     private int number;
 
     public Address getAddress() {
