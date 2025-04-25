@@ -9,7 +9,7 @@ public class Order {
     private String orderStatus;
 
 
-    Order(List<Menu.Item> item, Restaurant restaurant,Customer customer,String orderStatus){
+   public Order(List<Menu.Item> item, Restaurant restaurant,Customer customer,String orderStatus){
          this.customer=customer;
          this.items=item;
          this.customer=customer;
@@ -24,7 +24,7 @@ public class Order {
         this.deliveryGuy=deliveryguy;
     }
 
-    double orderCost(){
+   public double getorderCost(){
         double s=0;
         for(Menu.Item i: this.items)
         {
@@ -57,6 +57,10 @@ public class Order {
         restaurant.income=restaurant.income + this.orderCost();
         return true;
 
+    }
+    public void addtoOrderHistory()
+    {
+        customer.orderHistory.add(restaurant.getName());
     }
 
 
