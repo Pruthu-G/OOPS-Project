@@ -37,11 +37,11 @@ public class Order {
         }
         return s;
     }
-    }
+    
 
     public boolean  addIncome()
     {
-        restaurant.income=restaurant.income + this.orderCost();
+        restaurant.income=restaurant.income + this.getorderCost();
         return true;
 
     }
