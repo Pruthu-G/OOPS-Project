@@ -30,6 +30,11 @@ public class Order {
         {
             s+=i.getPrice();
         }
+        if(customer.getPoints()>0)
+        {
+            s-=customer.getPoints()*0.1;
+            customer.setPoints(0);
+        }
         return s;
     }
 

@@ -46,6 +46,7 @@ public class User{
         this.email = email;
         this.address = address;
         this.password = password;
+        this.number = 0;
         this.points=0;
 
        

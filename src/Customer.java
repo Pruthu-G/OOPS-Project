@@ -4,5 +4,8 @@ public class Customer extends User{
         super(name, email, address, password);
         //TODO Auto-generated constructor stub
     }
+    public void setPoints(int points){
+        this.points=points;
+    }
     
 }
