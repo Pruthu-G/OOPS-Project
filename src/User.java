@@ -36,7 +36,7 @@ public class User{
         this.email = email;
         this.address = address;
         this.password = password;
-        this.number=number;
+       
     }
     //Overloaded user constructor for delivery guy as he won't need address and email
     User(String name,String password,int number){
