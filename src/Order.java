@@ -30,8 +30,35 @@ public class Order {
         {
             s+=i.getPrice();
         }
+
+        if(customer.points>=1000 && customer.getPoints()<2000)
+        {
+            customer.points=customer.points+(int)(100*Math.random());
+            return (0.95*s);
+        }
+        else if(customer.points>=2000 && customer.getPoints()<3000)
+        {
+            customer.points=customer.points+(int)(100*Math.random());
+            return (0.90*s);
+        }
+        else if(customer.points>=3000)
+        {
+            customer.points=customer.points+(int)(100*Math.random());
+            return (0.85*s);
+        }
+        else{
+        customer.points=customer.points+(int)(100*Math.random());
         return s;
     }
+    }
+
+    public boolean  addIncome()
+    {
+        restaurant.income=restaurant.income + this.orderCost();
+        return true;
+
+    }
+
 
     public void addItem(Menu.Item... items){
         if(items!=null)
