@@ -41,7 +41,7 @@ public class Order {
 
     public boolean  addIncome()
     {
-        restaurant.income=restaurant.income + this.getorderCost();
+        restaurant.setIncome(this.getorderCost());
         return true;
 
     }
