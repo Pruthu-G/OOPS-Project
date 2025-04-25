@@ -37,6 +37,15 @@ public class Order {
         }
         return s;
     }
+    }
+
+    public boolean  addIncome()
+    {
+        restaurant.income=restaurant.income + this.orderCost();
+        return true;
+
+    }
+
 
     public void addItem(Menu.Item... items){
         if(items!=null)
