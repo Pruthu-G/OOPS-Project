@@ -5,5 +5,11 @@ public class Restaurant extends User {
         super(name, email, address, password);
         this.income=0.0;
     }
-    
+    public double getIncome() {
+        return income;
+    }
+
+    public void setIncome(double income) {
+        this.income = income;
+    }
 }
